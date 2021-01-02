@@ -2,8 +2,10 @@ import React from "react";
 import {Link} from 'react-router-dom'
 import Nav from 'react-bootstrap/Nav'
 import NavbarB from 'react-bootstrap/Navbar'
+import {checkLogin} from "../../utils/Utils";
 
 const FootNav: React.FC = () => {
+    let navProfile: string = (checkLogin()) ? '/login' : '/profile';
     return (
         <>
             <NavbarB
@@ -22,14 +24,15 @@ const FootNav: React.FC = () => {
                     <Nav.Link as={Link} to={'/'} className={"col-3"}>
                         SEARCH
                     </Nav.Link>
-                    <Nav.Link as={Link} to={'/login'} className={"col-3"}>
+                    <Nav.Link as={Link}
+                              to={navProfile}
+                              className={"col-3"}>
                         PROFILE
                     </Nav.Link>
                 </Nav>
             </NavbarB>
-
         </>
     );
-};
+}
 
 export default FootNav;

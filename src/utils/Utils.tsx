@@ -41,10 +41,25 @@ export function checkLogin(): boolean {
     let ret: boolean;
     let telNo: string = getMemberTelNo();
     let ukey: string = getMemberLoginKey();
-    console.log('telNo {} ', telNo);
-    console.log('ukey {} ', ukey);
-    ret = (telNo !== undefined && telNo !== '')
-        && (ukey !== undefined && ukey !== '');
+    // console.log('telNo {} ', telNo);
+    // console.log('ukey {} ', ukey);
+    ret = (telNo !== null && telNo !== undefined && telNo !== '')
+        && (ukey !== null && ukey !== undefined && ukey !== '');
     console.log(ret);
     return ret;
+}
+
+export function logOut() {
+    store.dispatch({
+        type: LOGIN_CHANGE_MEMBER_LOGIN_KEY,
+        loginReducerState: {
+            memberLoginKey: null
+        }
+    });
+    store.dispatch({
+        type: LOGIN_CHANGE_MEMBER_TEL_NO,
+        loginReducerState: {
+            memberTelNo: null
+        }
+    });
 }

@@ -1,27 +1,47 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import './LoginComponentCss.css'
+import {setMemberTelNo, setMemberLoginKey, checkLogin} from "../../utils/Utils";
+import {Redirect} from "react-router-dom";
 
 const LoginComponent: React.FC = () => {
     let telNo: string = "";
     let password: string = "";
     const inputTelNo: string = "input__telNo"
     const inputPassword: string = "input__password"
+    const [isLogin, setIsLogin] = useState<Boolean>();
 
+    useEffect(() => {
+        console.log('LoginComponent')
+        setIsLogin(checkLogin());
+    }, []);
 
     const clearValueInput = () => {
         $(`#${inputTelNo}`).val('');
         $(`#${inputPassword}`).val('');
     };
 
+
     const login = () => {
         console.log(`telNo ${telNo}`);
         console.log(`password ${password}`);
+        setMemberTelNo(telNo);
+        setMemberLoginKey(password);
         clearValueInput();
+        if (checkLogin()) {
+            console.log('login success');
+            setIsLogin(true);
+        } else {
+            setIsLogin(false);
+        }
+
 
     };
 
     return (
         <div className={"LoginComponent__"}>
+            {
+                isLogin ? <Redirect to="/profile"/> : <div></div>
+            }
             <div className="LoginComponent__login__form">
                 <div className="row" style={{justifyContent: "center"}}>
                     <div className="input-group input-group-sm col-10 LoginComponent__login__form__telno">
