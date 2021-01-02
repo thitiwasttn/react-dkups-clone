@@ -1,0 +1,2 @@
+export const LOGIN_CHANGE_MEMBER_TEL_NO: string = 'CHANGE_TEL_NO';
+export const LOGIN_CHANGE_MEMBER_LOGIN_KEY: string = 'CHANGE_LOGIN_KEY';
