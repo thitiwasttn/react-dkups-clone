@@ -1,26 +1,27 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import LoginComponent from "./components/loginComponent/LoginComponent";
+import {getMemberTelNo, getMemberLoginKey, checkLogin} from "./utils/Utils";
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import FootNav from "./components/footNav/FootNav";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+const App: React.FC = () => {
+    let chkLogin: boolean = checkLogin();
+
+
+    return (
+        <div className="App">
+            <Router>
+                <div className="container">
+                    <Route component={LoginComponent} path="/login"/>
+                </div>
+                <FootNav/>
+            </Router>
+        </div>
+    );
+};
 
 export default App;

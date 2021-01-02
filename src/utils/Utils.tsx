@@ -36,3 +36,15 @@ export function setMemberLoginKey(ukey: string): void {
         }
     });
 }
+
+export function checkLogin(): boolean {
+    let ret: boolean;
+    let telNo: string = getMemberTelNo();
+    let ukey: string = getMemberLoginKey();
+    console.log('telNo {} ', telNo);
+    console.log('ukey {} ', ukey);
+    ret = (telNo !== undefined && telNo !== '')
+        && (ukey !== undefined && ukey !== '');
+    console.log(ret);
+    return ret;
+}
