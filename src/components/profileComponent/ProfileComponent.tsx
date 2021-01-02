@@ -3,7 +3,7 @@ import {logOut, checkLogin} from "../../utils/Utils";
 import {Redirect} from "react-router-dom";
 
 const ProfileComponent: React.FC = () => {
-    const [isLogin, setIsLogin] = useState<Boolean>();
+    const [isLogin, setIsLogin] = useState<Boolean>(checkLogin());
 
     useEffect(() => {
         console.log('ProfileComponent');
@@ -14,15 +14,13 @@ const ProfileComponent: React.FC = () => {
     checkLogin();
     return (
         <>
-            {
-                (isLogin) ? <div></div> : <Redirect to="/login"/>
-            }
+            {(isLogin) ? <div></div>: <Redirect to="/login"/>}
             <button className="btn btn-danger" onClick={() => {
                 logOut();
                 setIsLogin(checkLogin());
             }}>log out</button>
         </>
     );
-};
+}
 
 export default ProfileComponent;

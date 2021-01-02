@@ -9,7 +9,7 @@ const LoginComponent: React.FC = () => {
     const inputTelNo: string = "input__telNo"
     const inputPassword: string = "input__password"
     const [isLogin, setIsLogin] = useState<Boolean>();
-
+    let redir: string = "/login";
     useEffect(() => {
         console.log('LoginComponent')
         setIsLogin(checkLogin());
@@ -28,20 +28,13 @@ const LoginComponent: React.FC = () => {
         setMemberLoginKey(password);
         clearValueInput();
         if (checkLogin()) {
-            console.log('login success');
-            setIsLogin(true);
-        } else {
-            setIsLogin(false);
+            setIsLogin(checkLogin());
         }
-
-
     };
 
     return (
         <div className={"LoginComponent__"}>
-            {
-                isLogin ? <Redirect to="/profile"/> : <div></div>
-            }
+            {(isLogin) ? <Redirect to="/profile"/> : <div></div>}
             <div className="LoginComponent__login__form">
                 <div className="row" style={{justifyContent: "center"}}>
                     <div className="input-group input-group-sm col-10 LoginComponent__login__form__telno">
@@ -70,6 +63,6 @@ const LoginComponent: React.FC = () => {
             </div>
         </div>
     );
-}
+};
 
 export default LoginComponent;
