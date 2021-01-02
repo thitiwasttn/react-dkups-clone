@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import './LoginComponentCss.css'
-import {setMemberTelNo, setMemberLoginKey, checkLogin} from "../../utils/Utils";
+import {setMemberTelNo, setMemberLoginKey, checkLogin , logger} from "../../utils/Utils";
 import {Redirect} from "react-router-dom";
 
 const LoginComponent: React.FC = () => {
@@ -11,7 +11,7 @@ const LoginComponent: React.FC = () => {
     const [isLogin, setIsLogin] = useState<Boolean>();
     let redir: string = "/login";
     useEffect(() => {
-        console.log('LoginComponent')
+        logger('LoginComponent');
         setIsLogin(checkLogin());
     }, []);
 
@@ -22,8 +22,8 @@ const LoginComponent: React.FC = () => {
 
 
     const login = () => {
-        console.log(`telNo ${telNo}`);
-        console.log(`password ${password}`);
+        logger(`telNo ${telNo}`)
+        logger(`password ${password}`)
         setMemberTelNo(telNo);
         setMemberLoginKey(password);
         clearValueInput();

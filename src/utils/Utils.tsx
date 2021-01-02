@@ -45,7 +45,7 @@ export function checkLogin(): boolean {
     // console.log('ukey {} ', ukey);
     ret = (telNo !== null && telNo !== undefined && telNo !== '')
         && (ukey !== null && ukey !== undefined && ukey !== '');
-    console.log(ret);
+    logger(`checkLogin ${ret}`)
     return ret;
 }
 
@@ -62,4 +62,8 @@ export function logOut() {
             memberTelNo: null
         }
     });
+}
+
+export function logger(param: any) {
+    console.log(param);
 }

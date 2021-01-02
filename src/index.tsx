@@ -4,10 +4,10 @@ import './index.css';
 import App from './App';
 import {Provider} from "react-redux";
 import {store} from "./store/Store"
-import {getLoginState} from "./utils/Utils";
+import {getLoginState, logger as log} from "./utils/Utils";
 
 store.subscribe(() => {
-    console.log('loginReducer {} ', getLoginState());
+    log('loginReducer {} ' + getLoginState())
 });
 
 ReactDOM.render(
