@@ -15,7 +15,7 @@ const App: React.FC = () => {
     return (
         <div className="App">
             <Router>
-                <div className="container">
+                <div className="">
                     <Route component={LoginComponent} path="/login"/>
                 </div>
                 <FootNav/>

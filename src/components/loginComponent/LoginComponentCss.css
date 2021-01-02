@@ -1,0 +1,55 @@
+.LoginComponent__ {
+    background-image: url("/src/images/bg-login.jpg");
+    height: 700px;
+    width: 100%;
+
+    /* lt ie8 */
+    -ms-background-position-x: center;
+    -ms-background-position-y: bottom;
+    background-position: center bottom;
+
+    /* scale bg image proportionately */
+    background-size: cover;
+    -ms-behavior: url("/src/images/bg-login.jpg");
+
+
+}
+
+@media only screen and (min-width: 768px) {
+    .LoginComponent__ {
+        height: 100vh;
+    }
+}
+
+.LoginComponent__login__form {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    border: antiquewhite solid;
+    border-radius: 13px;
+    width: 80%;
+    height: 30%;
+    background-color: antiquewhite;
+    color: #282c34;
+    padding: 5px;
+}
+
+.LoginComponent__login__form__telno {
+    margin-top: 30px;
+}
+
+.LoginComponent__login__form__password {
+    margin-top: 10px;
+}
+.margin_top {
+    margin-top: 15px;
+}
+
+
+/*@media only screen and (min-width : 1200px) {*/
+/*    .LoginComponent__ { height: 400px; }*/
+/*}*/
